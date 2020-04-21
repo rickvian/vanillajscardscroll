@@ -1,4 +1,6 @@
-to do:
+Card Slider Vanilla javascript animate
+ 
+In mobile view can be touched to scroll
 
-license
-change the card content
+
+no jquery
