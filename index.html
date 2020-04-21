@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Unipin Affiliate bar </title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+
+<style>
+    .link-plain,
+    .link-plain:hover,
+    .link-plain:active,
+    .link-plain:visited {
+        text-decoration: none;
+    }
+
+    .link-plain-f,
+    .link-plain-f:hover,
+    .link-plain-f:active,
+    .link-plain-f:focus,
+    .link-plain-f:visited {
+        color: initial;
+        text-decoration: none !important;
+    }
+
+    .div-center {
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+    }
+
+    #upa_container{
+        position: relative;
+    }
+
+    .upa-thumbnail {
+        border-radius: 5px;
+        border: 1px solid #dedede;
+        max-width: 100%;
+    }
+
+    .upa-title {
+        margin-top: 0px;
+        margin-bottom: 10px;
+        font-weight: 700;
+    }
+
+    .upa-carrousel-flexbox {
+
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+
+    .upa-carrousel-flexbox .upa-card {
+        flex: 0 0 auto;
+        padding-left: 15px;
+    }
+
+    .upa-carrousel-flexbox .upa-card:last-child {
+        margin-right: 15px;
+    }
+
+    .upa-carrousel-flexbox .upa-card:last-child::after {
+        content: ' ';
+        display: inline-block;
+    }
+
+    .upa-card {
+        width: 100px;
+        cursor: pointer;
+        user-select: none;
+        outline: none;
+    }
+
+    .upa-card:hover {
+        user-select: none;
+        outline: none;
+    }
+
+    .upa-card a {
+        display: block;
+    }
+
+    @media (min-width: 768px) {
+        .upa-card {
+            width: 130px;
+        }
+    }
+
+    .upa-carrousel,
+    .upa-carrousel-flexbox {
+        width: 100%;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .upa-carrousel::-webkit-scrollbar,
+    .upa-carrousel-flexbox::-webkit-scrollbar {
+        display: none;
+    }
+
+    .upa-carrousel-title {
+        display: inline-block;
+
+        color: #000;
+        border-bottom: 8px solid #f2c81a;
+        font-weight: 700;
+        padding-bottom: 8px;
+
+        margin-bottom: 18px;
+    }
+
+    .upa-title {
+        margin-top: 8px;
+        font-size: 11px;
+        max-height: 3em;
+        overflow: hidden;
+        color: black;
+        font-weight: 700;
+    }
+
+    @media (min-width: 768px) {
+        .upa-title {
+            font-size: 13px;
+        }
+    }
+
+    .upa-start-from {
+        font-size: 9px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: grey;
+    }
+
+    .upa-points {
+        font-size: 12px;
+        font-weight: 700;
+        display: inline-block;
+        color: black;
+    }
+
+    .deals-paddle {
+        height: 38px;
+        width: 38px;
+        color: white;
+        background-color: #00000089;
+        border-radius: 50%;
+        border: 0px solid;
+        margin: auto;
+        position: absolute;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .deals-paddle:focus {
+        outline: none;
+    }
+
+    .deals-paddle:active {
+        border-style: solid;
+        outline: none;
+        user-select: none;
+    }
+
+    .deals-paddle svg {
+        width: 10px;
+    }
+
+    .reseller-label-flex {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 15px 10px 10px;
+        background-color: white;
+    }
+
+    .reseller-powered-label {
+        display: flex;
+        align-items: center;
+        font-size: 10px;
+    }
+
+    .other-game-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10px;
+        text-decoration: none;
+        background-color: black;
+        color: white;
+        padding: 5px 30px;
+    }
+
+    @media (min-width: 768px) {
+        .reseller-powered-label {
+            font-size: 18px;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .other-game-button {
+            width: 300px;
+        }
+    }
+
+    .deals-scroll-left {
+        top: 0;
+        left: 5px;
+        bottom: 0;
+    }
+
+    .deals-scroll-right {
+        top: 0;
+        bottom: 0;
+        right: 5px;
+    }
+
+    .upa-carrousel-section {
+        font-family: 'Source sans pro';
+        padding: 0px;
+        position: relative;
+    }
+
+    @media (min-width: 768px) {
+
+        .upa-carrousel-section {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+    }
+
+    .upa-whitewrap {
+        background-color: white;
+        padding-top: 15px;
+        margin-top: 15px;
+    }
+
+    .upa-seeall {
+        display: block;
+        font-size: 18px;
+        font-weight: 700;
+        border-top: 1px solid #DDDDDD;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .bg-gradient-navy {
+        background-image: radial-gradient(circle at 180px -280px, #00ffff, #023d54 360px);
+        background-size: 101%;
+        color: white;
+    }
+
+    #redeemDetailModal.fade .modal-dialog {
+        opacity: 0;
+        transition: all 0.3s;
+    }
+
+    #redeemDetailModal.fade.in .modal-dialog {
+        transform: scale(1);
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+
+    #redeemDetailModal .modal-dialog {
+        margin: 0;
+        bottom: 0;
+        position: absolute;
+        width: 100vw;
+    }
+
+    #redeemDetailModal .modal-dialog .modal-content {
+        border-radius: 5px 5px 0 0;
+    }
+
+    #redeemDetailModal .modal-body {
+        padding-bottom: 30px;
+    }
+
+    #redeemDetailModal .modal-dialog {
+        margin: 30px auto;
+        margin-top: 70px;
+        bottom: inherit;
+        position: relative;
+        width: 350px;
+        margin-top: 70px;
+    }
+
+    #redeemDetailModal .modal-dialog .modal-content {
+        border-radius: 5px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    #redeemDetailModal .modal-body {
+        padding-bottom: 0px;
+        text-align: center;
+    }
+
+    .more-trigger {
+        font-size: 16px;
+        font-weight: 700;
+        color: #ED6B26;
+    }
+
+    .c-orange {
+        color: #ED6B26;
+    }
+
+    .c-black {
+        color: #000;
+    }
+</style>
+
+<body>
+
+    <div class="upa-carrousel-section">
+        <div class="upa-whitewrap">
+            <div class="div-center">
+                <h2 class="h4 upa-carrousel-title">
+                    Card Slider Vanilla javascript animate
+                </h2>
+                <h4 class="h4 upa-carrousel-title">
+                    In mobile view can be touched to scroll
+                </h4>
+            </div>
+
+            <div id="upa_container">
+                <button class="deals-scroll-left deals-paddle">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-left" class="svg-inline--fa fa-chevron-left fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                        <path fill="currentColor" d="M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z"></path>
+                    </svg>
+                </button>
+
+                <div class="upa-carrousel-flexbox">
+                    <div class="upa-card"> <a class="link-plain" target="_blank"> <img class="upa-thumbnail" src="https://via.placeholder.com/170x170"> <div class="upa-title">Card Title </div> <div class="upa-start-from"> card description can be written here</div> </a> </div>
+                    <div class="upa-card"> <a class="link-plain" target="_blank"> <img class="upa-thumbnail" src="https://via.placeholder.com/170x170"> <div class="upa-title">Card Title </div> <div class="upa-start-from"> card description can be written here</div> </a> </div>
+                    <div class="upa-card"> <a class="link-plain" target="_blank"> <img class="upa-thumbnail" src="https://via.placeholder.com/170x170"> <div class="upa-title">Card Title </div> <div class="upa-start-from"> card description can be written here</div> </a> </div>
+                    <div class="upa-card"> <a class="link-plain" target="_blank"> <img class="upa-thumbnail" src="https://via.placeholder.com/170x170"> <div class="upa-title">Card Title </div> <div class="upa-start-from"> card description can be written here</div> </a> </div>
+                    <div class="upa-card"> <a class="link-plain" target="_blank"> <img class="upa-thumbnail" src="https://via.placeholder.com/170x170"> <div class="upa-title">Card Title </div> <div class="upa-start-from"> card description can be written here</div> </a> </div>
+                    <div class="upa-card"> <a class="link-plain" target="_blank"> <img class="upa-thumbnail" src="https://via.placeholder.com/170x170"> <div class="upa-title">Card Title </div> <div class="upa-start-from"> card description can be written here</div> </a> </div>
+                    <div class="upa-card"> <a class="link-plain" target="_blank"> <img class="upa-thumbnail" src="https://via.placeholder.com/170x170"> <div class="upa-title">Card Title </div> <div class="upa-start-from"> card description can be written here</div> </a> </div>
+                    <div class="upa-card"> <a class="link-plain" target="_blank"> <img class="upa-thumbnail" src="https://via.placeholder.com/170x170"> <div class="upa-title">Card Title </div> <div class="upa-start-from"> card description can be written here</div> </a> </div>
+                    <div class="upa-card"> <a class="link-plain" target="_blank"> <img class="upa-thumbnail" src="https://via.placeholder.com/170x170"> <div class="upa-title">Card Title </div> <div class="upa-start-from"> card description can be written here</div> </a> </div>
+
+                    <div class="upa-card"> <a class="link-plain" target="_blank"> <img class="upa-thumbnail" src="https://via.placeholder.com/170x170"> <div class="upa-title">Card Title </div> <div class="upa-start-from"> card description can be written here</div> </a> </div>
+                </div>
+
+                <button class="deals-scroll-right deals-paddle">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right" class="svg-inline--fa fa-chevron-right fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                        <path fill="currentColor" d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"></path>
+                    </svg>
+                </button>
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <script>
+        var aning = false;
+
+function scrollLeftAnimate(elem, unit) {
+    if (!elem || aning) {
+        return;
+    }
+    var time = 300;
+    var from = elem.scrollLeft;
+    var aframe = 10;
+    aning = true;
+    var start = new Date().getTime(),
+        timer = setInterval(function() {
+            var step = Math.min(1, (new Date().getTime() - start) / time);
+            elem.scrollLeft = ((step * unit) + from);
+            if (step === 1) {
+                clearInterval(timer);
+                aning = false;
+            }
+        }, aframe);
+}
+
+
+//Initiate Carrousel Function based on ID
+function initDealCarrousel(dealCarrouselID) {
+
+
+
+    var target = document.querySelector("#" + dealCarrouselID + " .upa-carrousel-flexbox");
+    var cardOutterWidth;
+    var maxCarrouselScroll;
+
+    function updateUpaCarrouselInfo() {
+        cardOutterWidth = document.querySelector("#" + dealCarrouselID + " .upa-card").offsetWidth;
+        maxCarrouselScroll = (document.querySelectorAll("#" + dealCarrouselID + " .upa-card").length * cardOutterWidth) - document.querySelector("#" + dealCarrouselID + " .upa-carrousel-flexbox").clientWidth;
+    }
+    document.querySelector("#" + dealCarrouselID + " .deals-scroll-left").addEventListener("click", function() {
+        updateUpaCarrouselInfo();
+        if (target.scrollLeft > 0) {
+            scrollLeftAnimate(target, -cardOutterWidth * 2);
+        }
+    });
+    document.querySelector("#" + dealCarrouselID + " .deals-scroll-right").addEventListener("click", function() {
+        updateUpaCarrouselInfo();
+        if (target.scrollLeft < maxCarrouselScroll) {
+            scrollLeftAnimate(target, cardOutterWidth * 2);
+        }
+    });
+}
+    </script>
+
+    <script>
+ 
+
+        // Initiate
+        initDealCarrousel('upa_container'); //carrousel ID
+  
+    </script>
+
+
+</body>
+
+</html>
